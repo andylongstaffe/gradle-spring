@@ -1,12 +1,26 @@
 package com.hollywood.idgenerator;
 
-public class Id {
+/**
+ * 
+ * @author andy
+ *
+ */
+public class Id
+{ 
+  private static int id = 1;
 
-	private static int id = 1;
-	
-	public static int get()
-	{
-		return id++;
-	}
-	
+  private Id()
+  {
+    // empty
+  }
+  
+  /**
+   * 
+   * @return
+   */
+  public static int get()
+  {
+    return id++;
+  }
+
 }

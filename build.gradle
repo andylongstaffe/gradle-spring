@@ -1,8 +1,8 @@
 apply plugin: 'war'
 apply plugin: 'jetty'
 apply plugin: 'eclipse-wtp'
-apply plugin: 'ear'
 apply plugin: 'cargo'
+apply plugin: 'checkstyle'
 
 repositories {
    mavenCentral()
@@ -46,4 +46,8 @@ cargo {
 
         
     }
+}
+
+checkstyle {
+       configFile = new File(rootDir, "config/checkstyle/checkstyle.xml")
 }
