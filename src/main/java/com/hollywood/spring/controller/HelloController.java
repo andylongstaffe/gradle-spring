@@ -19,7 +19,7 @@ public class HelloController {
    * @param model
    * @return
    */
-  @RequestMapping("welcome")
+  @RequestMapping("test")
   public String loadHomePage(ModelMap model) {
     model.addAttribute("message", "Spring 3 MVC Hello World");
     // return the name of the view
