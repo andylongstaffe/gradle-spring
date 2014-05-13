@@ -2,16 +2,36 @@ apply plugin: 'war'
 apply plugin: 'jetty'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'cargo'
-apply plugin: 'checkstyle'
+// apply plugin: 'checkstyle'
 
 repositories {
    mavenCentral()
 }
 
+//configurations.all {
+//	exclude group: 'commons-logging'
+//}	
+
 dependencies {
    providedCompile 'javax.servlet:servlet-api:2.5'
    compile 'org.springframework:spring-webmvc:3.2.2.RELEASE'
+   
+   
    // compile 'org.jboss.resteasy:RESTEASY-736-jetty:2.3.7.Final'
+   
+   // log4j
+   compile 'log4j:log4j:1.2.17'
+   
+   runtime 'taglibs:standard:1.1.2'  
+   runtime 'org.apache.tiles:tiles-core:2.1.2'
+   runtime 'org.apache.tiles:tiles-api:2.1.2'
+   runtime 'org.apache.tiles:tiles-jsp:2.1.2'
+   //runtime 'org.slf4j:jcl-over-slf4j:1.4.2' 
+   //runtime 'org.slf4j:jul-over-slf4j:1.4.2' 
+   //runtime 'ch.qos.logback:logback-classic'
+   // runtime 'org.slf4j:slf4j-log4j12:1.4.2' 
+   
+   runtime 'org.springframework:spring-oxm:3.2.2.RELEASE'
    runtime 'javax.servlet:jstl:1.1.2'
 }
 
@@ -48,6 +68,7 @@ cargo {
     }
 }
 
+/**
 checkstyle {
        configFile = new File(rootDir, "config/checkstyle/checkstyle.xml")
-}
+}*/
