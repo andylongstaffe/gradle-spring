@@ -5,7 +5,7 @@
  
 <tiles-definitions>
  
-	<definition name="studentsView" template="/pages/students.jsp">
+	<definition name="studentsView" template="/WEB-INF/view/students.jsp">
 	</definition>
  
 </tiles-definitions>

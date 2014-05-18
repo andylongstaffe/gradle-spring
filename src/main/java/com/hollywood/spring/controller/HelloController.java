@@ -1,5 +1,7 @@
 package com.hollywood.spring.controller;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HelloController {
 
-  /**
+	Logger log = Logger.getLogger(HelloController.class);
+	
+	/**
    * The welcome page.
    * 
    * @param model
@@ -21,7 +25,9 @@ public class HelloController {
    */
   @RequestMapping("test")
   public String loadHomePage(ModelMap model) {
-    model.addAttribute("message", "Spring 3 MVC Hello World");
+    log.info("INFO Running HelloController");
+    log.debug("DEBUG  Running HelloController");
+	model.addAttribute("message", "Spring 3 MVC Hello World");
     // return the name of the view
     return "hello";
   }

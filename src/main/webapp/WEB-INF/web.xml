@@ -5,14 +5,27 @@
 
 	<!-- The definition of the Root Spring Container shared by all Servlets 
 		and Filters -->
-		<!-- 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/spring/root-context.xml</param-value>
-	</context-param>
--->
 
-	<!-- Processes application requests -->
+	</context-param>
+
+	<servlet-mapping>
+		<!-- references servlet -->
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<url-pattern>/hello/*</url-pattern>
+	</servlet-mapping>
+
+
+
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<!-- <listener> <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
+		</listener> -->
+
+	<!-- log4j config, this can also go in spring-context but may occur later -->
+
+    <!-- Processes application requests -->
 	<servlet>
 		<!-- this points to mvc-dispatcher-servlet configuration -->
 		<servlet-name>mvc-dispatcher</servlet-name>
@@ -23,14 +36,8 @@
 			<param-value>/WEB-INF/spring/mvc-dispatcher-servlet.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
-	</servlet>
+	</servlet> 
 
-	<servlet-mapping>
-		<!-- references servlet -->
-		<servlet-name>mvc-dispatcher</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
-	
 	<servlet>
 		<servlet-name>SpringRestfulExample</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -41,17 +48,16 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
- 
+	
 	<servlet-mapping>
     		<servlet-name>SpringRestfulExample</servlet-name>
     		<url-pattern>/app/*</url-pattern>
 	</servlet-mapping>
 
-	<!-- Creates the Spring Container shared by all Servlets and Filters -->
-	<!-- 
+	<!-- set up the root context -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener> -->
+	</listener>
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
